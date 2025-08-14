@@ -11,7 +11,7 @@ function formatDate(dateStr: string) {
     const [day, month, year] = parts;
     return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
   }
-  return dateStr; // return as is if not matching format
+  return dateStr;
 }
 
 // Aadhaar: Send OTP

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type React from "react"
 import type { UseFormRegister, FieldErrors, UseFormWatch } from "react-hook-form"
 import type { IField } from "@/types/form"

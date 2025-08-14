@@ -44,7 +44,7 @@ export default function RegistrationForm() {
   const panForm = useForm({
     resolver: zodResolver(createFormSchema(UDYAM_FORM_SCHEMA.steps[1])),
     defaultValues: {
-      typeOfOrganisation: "1", // Ensure this matches the first option value
+      typeOfOrganisation: "1",
       panNumber: "",
       panHolderName: "",
       dobOrDoi: "",
@@ -57,62 +57,6 @@ export default function RegistrationForm() {
   const otpForm = useForm({
     defaultValues: { otp: "" },
   });
-
-  // const handleAadhaarSubmit = (data: any) => {
-  //   console.log("Aadhaar Data:", data);
-  //   setAadhaarData(data);
-
-  //   setOtpSentTo(`******${data.aadhaarNumber.slice(-4)}`);
-  //   setShowOtpField(true);
-  //   setErrorMessage("");
-  // };
-
-  // const handleOtpSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   const otpData = otpForm.getValues();
-  //   console.log("OTP Data:", otpData);
-
-  //   setTimeout(() => {
-  //     setAadhaarVerified(true);
-  //     setSuccessMessage(
-  //       "Your Aadhaar has been successfully verified. You can continue Udyam Registration process."
-  //     );
-  //     setShowOtpField(false);
-  //     setCurrentStep("pan");
-  //     setErrorMessage("");
-  //   }, 1000);
-  // };
-
-  // const handlePanSubmit = (data: any) => {
-  //   console.log("PAN Data:", data);
-  //   console.log("PAN Form Errors:", panForm.formState.errors); // Added debugging for form errors
-
-  //   setErrorMessage("");
-  //   setSuccessMessage("");
-
-  //   setTimeout(() => {
-  //     if (data.panNumber && data.panNumber.toUpperCase() === "BWXPL1895B") {
-  //       setPanVerified(true);
-  //       setErrorMessage("");
-  //       setSuccessMessage(
-  //         "Your PAN has been successfully verified. Some fields of the form will be disabled. Disabled fields will be automatically filled after verification from PAN data. GSTIN (As per applicability of CGST Act 2017 and as notified by the ministry of MSME vide S.O. 1055(E) dated 05th March 2021) is required for Udyam Registration w.e.f. 01.04.2021. You are advised to apply for GSTIN suitably to avoid any inconvenience."
-  //       );
-  //     } else {
-  //       setErrorMessage("Record (PAN) Not Found in ITD Data-base/Invalid PAN.");
-  //       setPanVerified(false);
-  //       setSuccessMessage("");
-  //     }
-  //   }, 1000);
-  // };
-
-  // const handleContinue = () => {
-  //   const finalData = {
-  //     ...aadhaarData,
-  //     ...panForm.getValues(),
-  //   };
-  //   console.log("Final Form Data:", finalData);
-  //   setCurrentStep("success");
-  // };
 
   // ✅ Aadhaar Step
   const handleAadhaarSubmit = async (data: any) => {

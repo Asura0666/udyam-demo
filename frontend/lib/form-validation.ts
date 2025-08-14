@@ -12,13 +12,13 @@ export const createZodSchema = (fields: readonly IField[]) => {
         fieldSchema = z.string()
 
         if (field.validation.required) {
-          fieldSchema = fieldSchema.min(1, `${field.label} is required`)
+          fieldSchema = (fieldSchema as z.ZodString).min(1, `${field.label} is required`)
         } else {
           fieldSchema = fieldSchema.optional()
         }
 
         if (field.validation.maxlength) {
-          fieldSchema = fieldSchema.max(
+          fieldSchema = (fieldSchema as z.ZodString).max(
             field.validation.maxlength,
             `${field.label} must be at most ${field.validation.maxlength} characters`,
           )
@@ -26,14 +26,14 @@ export const createZodSchema = (fields: readonly IField[]) => {
 
         if (field.validation.pattern) {
           const regex = new RegExp(field.validation.pattern)
-          fieldSchema = fieldSchema.regex(regex, `${field.label} format is invalid`)
+          fieldSchema = (fieldSchema as z.ZodString).regex(regex, `${field.label} format is invalid`)
         }
         break
 
       case "select":
         fieldSchema = z.string()
         if (field.validation.required) {
-          fieldSchema = fieldSchema
+          fieldSchema = (fieldSchema as z.ZodString)
             .min(1, `${field.label} is required`)
             .refine((val) => val !== "0" && val !== "", `${field.label} is required`)
         } else {

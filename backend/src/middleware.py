@@ -28,6 +28,7 @@ def register_middleware(app: FastAPI):
         CORSMiddleware,
         allow_origins=[
             "http://localhost:3000",
+            "https://udyam-demo-backend-t751.onrender.com"
         ],
         allow_methods=["*"],  # Allow all methods (GET, POST, OPTIONS, PUT, DELETE, etc.)
         allow_headers=["*"],  # Allow all headers (safer for development)
@@ -42,5 +43,6 @@ def register_middleware(app: FastAPI):
             "127.0.0.1",
             "0.0.0.0",
             "testserver"
+            "udyam-demo-backend-t751.onrender.com"
         ],
     )
