@@ -4,11 +4,16 @@ services:
   backend:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: backend/Dockerfile
     container_name: udyam-backend
     restart: always
-    env_file: .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      DATABASE_URL: ${DATABASE_URL}
+      TEST_DATABASE_URL: ${TEST_DATABASE_URL}
     ports:
       - "8000:8000"
     volumes:
-      - .:/app
+      - ./backend:/app
