@@ -1,0 +1,43 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+.env.*
+
+# Coverage and pytest
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Alembic migrations (versions can be ignored if generated dynamically)
+alembic/versions/*.pyc
+alembic/versions/*.pyo
+# Uncomment below if you don't want migration history in Git:
+# alembic/versions/
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# VSCode settings
+.vscode/
+
+# System / OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
