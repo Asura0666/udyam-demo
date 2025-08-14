@@ -11,6 +11,7 @@ logger.disabled = True
 
 domain = Config.BACKEND_DOMAIN
 
+
 def register_middleware(app: FastAPI):
     # Custom logging middleware
     @app.middleware("http")
@@ -32,10 +33,10 @@ def register_middleware(app: FastAPI):
         allow_origins=[
             "http://localhost:3000",
             "https://udyam-demo.vercel.app",
-            f"https://{domain}"
+            f"https://{domain}",
         ],
-        allow_methods=["*"],  # Allow all methods (GET, POST, OPTIONS, PUT, DELETE, etc.)
-        allow_headers=["*"],  # Allow all headers (safer for development)
+        allow_methods=["*"],
+        allow_headers=["*"],
         allow_credentials=True,
     )
 
@@ -43,11 +44,13 @@ def register_middleware(app: FastAPI):
     app.add_middleware(
         TrustedHostMiddleware,
         allowed_hosts=[
-            domain,            
+            domain,
             "localhost",
             "127.0.0.1",
             "0.0.0.0",
             "testserver",
-            "udyam-demo.vercel.app"
+            "udyam-demo.vercel.app",
+            "udyam-demo-backend-vsnb.onrender.com",  # Render's actual domain
+            "*.onrender.com",  # Allow all Render subdomains (safer for testing)
         ],
     )
