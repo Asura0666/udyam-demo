@@ -28,16 +28,23 @@ def register_middleware(app: FastAPI):
         return response
 
     # CORS middleware
+    # app.add_middleware(
+    #     CORSMiddleware,
+    #     allow_origins=[
+    #         "http://localhost:3000",
+    #         "https://udyam-demo.vercel.app",
+    #         f"https://{domain}",
+    #     ],
+    #     allow_methods=["*"],
+    #     allow_headers=["*"],
+    #     allow_credentials=True,
+    # )
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=[
-            "http://localhost:3000",
-            "https://udyam-demo.vercel.app",
-            f"https://{domain}",
-        ],
+        allow_origins=["*"],
         allow_methods=["*"],
         allow_headers=["*"],
-        allow_credentials=True,
+        allow_credentials=False,
     )
 
     # Trusted hosts
