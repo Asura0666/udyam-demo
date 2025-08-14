@@ -4,9 +4,12 @@ from fastapi.middleware.trustedhost import TrustedHostMiddleware
 import time
 import logging
 
+from src.config import Config
+
 logger = logging.getLogger("uvicorn.access")
 logger.disabled = True
 
+domain = Config.BACKEND_DOMAIN
 
 def register_middleware(app: FastAPI):
     # Custom logging middleware
@@ -28,7 +31,8 @@ def register_middleware(app: FastAPI):
         CORSMiddleware,
         allow_origins=[
             "http://localhost:3000",
-            "https://udyam-demo-backend-t751.onrender.com"
+            "https://udyam-demo.vercel.app",
+            f"https://{domain}"
         ],
         allow_methods=["*"],  # Allow all methods (GET, POST, OPTIONS, PUT, DELETE, etc.)
         allow_headers=["*"],  # Allow all headers (safer for development)
@@ -39,10 +43,11 @@ def register_middleware(app: FastAPI):
     app.add_middleware(
         TrustedHostMiddleware,
         allowed_hosts=[
+            domain,            
             "localhost",
             "127.0.0.1",
             "0.0.0.0",
-            "testserver"
-            "udyam-demo-backend-t751.onrender.com"
+            "testserver",
+            "udyam-demo.vercel.app"
         ],
     )

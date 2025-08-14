@@ -6,6 +6,7 @@ class Settings(BaseSettings):
   POSTGRES_PASSWORD: str
   POSTGRES_DB: str
   TEST_DATABASE_URL: str
+  BACKEND_DOMAIN: str
   model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 Config = Settings()
