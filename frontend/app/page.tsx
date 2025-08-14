@@ -7,11 +7,12 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       {/* Main Title */}
-      <h1 className="text-2xl text-gray-800 mb-4 border px-44 py-4 bg-gray-100">
+      <h1 className="text-2xl sm:text-3xl w-full text-gray-800 mb-4 border px-2 sm:px-44 py-4 bg-gray-100 text-center break-words whitespace-normal">
         UDYAM REGISTRATION FORM - For New Enterprise who are not Registered yet
         as MSME
       </h1>
-      <main className="container mx-auto px-4 py-8">
+
+      <main className="container mx-auto md:px-4 py-8">
         <RegistrationForm />
         <div className="mt-8 mb-8">
           <div className="overflow-hidden whitespace-nowrap">

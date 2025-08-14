@@ -155,7 +155,7 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4">
+    <div className="max-w-7xl mx-auto">
       <div className="flex gap-8">
         <div className="flex-1 max-w-7xl mx-auto px-4">
           <div className="bg-white rounded-sm shadow-sm border border-gray-200">
